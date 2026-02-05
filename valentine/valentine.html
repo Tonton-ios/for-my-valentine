@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pour ma Valentine 💖</title>
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ===================== PAGE 1: INTRO / NOM ===================== -->
+<section class="page page1">
+  <div class="content">
+    <h1>Hey <span id="name">Mon amour</span> 💕</h1>
+    <p class="subtitle">Appuie sur commencer </p>
+    <button id="startBtn">Commencer 🌹</button>
+  </div>
+</section>
+
+<!-- ===================== PAGE 2: QUESTION ===================== -->
+<section class="page page2 hidden">
+  <div class="content">
+    <h2>Veux-tu être ma Valentine ? 🌹</h2>
+    <div class="buttons">
+      <button id="yesBtn">Oui 💖</button>
+      <button id="noBtn">Non 🙈</button>
+    </div>
+    <p id="response"></p>
+  </div>
+</section>
+
+<!-- ===================== PAGE 3: LONG TEXTE ===================== -->
+<section class="page page3 hidden">
+  <div class="content long-text">
+    <div class="text">
+      <h2 id="romanticTitle"></h2>
+      <p id="romanticText"></p>
+    </div>
+    <div class="photos">
+      <img src="photo1.jpg" alt="Souvenir 1">
+      <img src="photo2.jpg" alt="Souvenir 2">
+      <img src="photo3.jpg" alt="Souvenir 3">
+    </div>
+    <!-- Bouton secret -->
+<button id="secretBtn" class="hidden">Clique ici pour ta surprise finale 🎁</button>
+
+<!-- Surprise finale -->
+<div id="finalSurprise" class="hidden">
+  <h2>Surprise ! 💖</h2>
+  <img src="surprise.jpg" alt="Surprise" style="width:300px; border-radius:15px;">
+  <!-- OU tu peux mettre une vidéo -->
+  <!-- <video width="300" controls>
+        <source src="surprise.mp4" type="video/mp4">
+        Ton navigateur ne supporte pas la vidéo.
+  </video> -->
+</div>
+  </div>
+</section>
+
+<script src="script.js"></script>
+</body>
+</html>
