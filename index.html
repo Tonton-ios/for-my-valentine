@@ -12,19 +12,39 @@
 </head>
 <body>
 
+<!-- Barre flottante supérieure -->
+<div class="top-bar">
+  <div class="heart-counter">
+    <span class="heart-icon">❤️</span>
+    <span id="heartCount">0</span>
+  </div>
+  <button id="musicBtn" class="music-btn" title="Activer la musique">🎵</button>
+</div>
+
 <!-- ===================== PAGE 1: INTRO / NOM ===================== -->
 <section class="page page1">
   <div class="content">
-    <h1>Hey <span id="name">Mon amour</span> 💕</h1>
-    <p class="subtitle">Appuie sur commencer </p>
+    <div class="animated-gifts">
+      <span class="gift">🎁</span>
+      <span class="gift">💝</span>
+      <span class="gift">🎀</span>
+    </div>
+    <h1>✨ Hey <span id="name">Mon amour</span> ✨</h1>
+    <p class="subtitle">J'ai quelque chose de spécial pour toi...</p>
     <button id="startBtn">Commencer 🌹</button>
+    <div class="animated-gifts-bottom">
+      <span class="gift">🎁</span>
+      <span class="gift">💝</span>
+      <span class="gift">🎀</span>
+    </div>
   </div>
 </section>
 
 <!-- ===================== PAGE 2: QUESTION ===================== -->
 <section class="page page2 hidden">
   <div class="content">
-    <h2>Veux-tu être ma Valentine ? 🌹</h2>
+    <h2>💕 Veux-tu être ma Valentine ? 💕</h2>
+    <p class="subtitle" style="font-size: 1rem; margin-bottom: 35px; color: #888;">Clique sur ta réponse...</p>
     <div class="buttons">
       <button id="yesBtn">Oui 💖</button>
       <button id="noBtn">Non 🙈</button>
@@ -36,31 +56,115 @@
 <!-- ===================== PAGE 3: LONG TEXTE ===================== -->
 <section class="page page3 hidden">
   <div class="content long-text">
+    <div class="floating-elements">
+      <div class="element">💕</div>
+      <div class="element">🌹</div>
+      <div class="element">⭐</div>
+      <div class="element">💫</div>
+    </div>
     <div class="text">
       <h2 id="romanticTitle"></h2>
       <p id="romanticText"></p>
     </div>
-    <div class="photos">
-      <img src="barbancourt_blanc_55vol_bottle_800-1362.jpg" alt="Souvenir 1">
-      <img src="IMG_3236.JPG" alt="Souvenir 2">
-      <img src="IMG_3237.WEBP" alt="Souvenir 3">
+    
+    <!-- Section Interactive Cadeaux -->
+    <div class="gifts-section">
+      <p class="gifts-subtitle">Découvre tes petits cadeaux 🎁</p>
+      <div class="gift-boxes">
+        <div class="gift-box" data-gift="0">
+          <span class="gift-icon">💌</span>
+          <p>Message</p>
+        </div>
+        <div class="gift-box" data-gift="1">
+          <span class="gift-icon">🌹</span>
+          <p>Rose</p>
+        </div>
+        <div class="gift-box" data-gift="2">
+          <span class="gift-icon">💎</span>
+          <p>Joyau</p>
+        </div>
+        <div class="gift-box" data-gift="3">
+          <span class="gift-icon">🎵</span>
+          <p>Musique</p>
+        </div>
+      </div>
+      <div id="giftContent" class="gift-content hidden"></div>
     </div>
-    <!-- Bouton secret -->
-<button id="secretBtn" class="hidden">Clique ici pour ta surprise finale 🎁</button>
 
-<!-- Surprise finale -->
-<div id="finalSurprise" class="hidden">
-  <h2>Surprise ! 💖</h2>
-  <img src="surprise.jpg" alt="Surprise" style="width:300px; border-radius:15px;">
-  <!-- OU tu peux mettre une vidéo -->
-  <!-- <video width="300" controls>
-        <source src="surprise.mp4" type="video/mp4">
-        Ton navigateur ne supporte pas la vidéo.
-  </video> -->
-</div>
+    <!-- Section Galerie des sentiments -->
+    <div class="feelings-gallery">
+      <p class="gallery-title">Ce que tu représentes pour moi 💖</p>
+      <div class="feelings-grid">
+        <div class="feeling-card">
+          <span class="feeling-emoji">😊</span>
+          <p>Tu me fais sourire</p>
+        </div>
+        <div class="feeling-card">
+          <span class="feeling-emoji">🌟</span>
+          <p>Tu es mon étoile</p>
+        </div>
+        <div class="feeling-card">
+          <span class="feeling-emoji">🦋</span>
+          <p>Tu me papillonnes le cœur</p>
+        </div>
+        <div class="feeling-card">
+          <span class="feeling-emoji">🌈</span>
+          <p>Tu es mon arc-en-ciel</p>
+        </div>
+        <div class="feeling-card">
+          <span class="feeling-emoji">💪</span>
+          <p>Tu me rends fort</p>
+        </div>
+        <div class="feeling-card">
+          <span class="feeling-emoji">🏠</span>
+          <p>Tu es mon chez-moi</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section Raisons de t'aimer -->
+    <div class="reasons-section">
+      <p class="reasons-title">Mes raisons de t'aimer ✨</p>
+      <div class="reasons-list">
+        <div class="reason-item" style="--delay: 0s;">
+          <span class="reason-number">1</span>
+          <p>Ton cœur pur et généreux</p>
+        </div>
+        <div class="reason-item" style="--delay: 0.2s;">
+          <span class="reason-number">2</span>
+          <p>Ton rire qui fait danser mon âme</p>
+        </div>
+        <div class="reason-item" style="--delay: 0.4s;">
+          <span class="reason-number">3</span>
+          <p>Tes yeux pleins de bienveillance</p>
+        </div>
+        <div class="reason-item" style="--delay: 0.6s;">
+          <span class="reason-number">4</span>
+          <p>Ta force et ta détermination</p>
+        </div>
+        <div class="reason-item" style="--delay: 0.8s;">
+          <span class="reason-number">5</span>
+          <p>Ta tendresse incomparable</p>
+        </div>
+        <div class="reason-item" style="--delay: 1s;">
+          <span class="reason-number">6</span>
+          <p>Et simplement... d'être toi</p>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Bouton secret -->
+    <button id="secretBtn" class="hidden">💝 Clique ici pour ta surprise finale 💝</button>
+
+    <!-- Surprise finale -->
+    <div id="finalSurprise" class="hidden">
+      <h2>✨ Tu es ma plus belle surprise 💖 ✨</h2>
+      <div id="surpriseMessage" class="surprise-box"></div>
+    </div>
   </div>
 </section>
 
 <script src="script.js"></script>
+<script src="extra-features.js"></script>
 </body>
 </html>
