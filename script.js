@@ -336,31 +336,269 @@ reasonItems.forEach((item, index) => {
     
     setTimeout(() => {
       item.style.background = originalBg;
+    }, 500);
+  });
   
-// ==================== INTERACTION GALERIE DES SENTIMENTS ====================
-co"moconst feelingCards = document.querySelectorAll(".feeling-card");
-feelingCards.;
-feelingCards.forEach((card, index) => {
-  card.addEventListener.s  card.addEventListener("click", () =>;
-    launchConfetti();
-    addHeart();
-PPLÉMENTAIRES ==========    
-    // AnAj   er    card.style.animation = "tI    setTimeout(() => {
-    andom()       card.style.animpa    }, 10);
+  // Animation au survol avec rotation
+  item.addEventListener("mouseenter", () => {
+    item.style.transform = "translateX(15px) rotateZ(1deg)";
+  });
+  
+  item.addEventListener("mouseleave", () => {
+    item.style.transform = "translateX(0)";
   });
 });
 
-// ==================== INTERACTIOte  }) "✨";
+// ==================== EFFETS SUPPLÉMENTAIRES ====================
+// Ajouter des paillettes au hasard
+setInterval(() => {
+  if(Math.random() > 0.98) {
+    const sparkle = document.createElement("div");
+    sparkle.textContent = "✨";
+    sparkle.style.position = "fixed";
+    sparkle.style.left = Math.random() * 100 + "vw";
+    sparkle.style.top = Math.random() * 100 + "vh";
+    sparkle.style.fontSize = "1rem";
+    sparkle.style.opacity = "0";
+    sparkle.style.animation = "twinkle 2s ease-in-out forwards";
+    sparkle.style.zIndex = 100;
+    sparkle.style.pointerEvents = "none";
+    document.body.appendChild(sparkle);
+    setTimeout(() => sparkle.remove(), 2000);
+  }
+}, 3000);
+
+// ==================== MINI-JEU: ATTRAPE LES CŒURS ====================
+let gameActive = false;
+
+// Créer des petits cœurs qui tombent pendant la musique
+function startHeartRain() {
+  gameActive = true;
+  setInterval(() => {
+    if(gameActive && isMusicOn) {
+      const fallingHeart = document.createElement("div");
+      fallingHeart.textContent = "💗";
+      fallingHeart.style.position = "fixed";
+      fallingHeart.style.left = Math.random() * 100 + "vw";
+      fallingHeart.style.top = "-50px";
+      fallingHeart.style.fontSize = "2rem";
+      fallingHeart.style.cursor = "pointer";
+      fallingHeart.style.animation = "heartFall 4s linear forwards";
+      fallingHeart.style.zIndex = 200;
+      
+      fallingHeart.addEventListener("click", (e) => {
+        e.stopPropagation();
+        addHeart();
+        launchConfetti();
+        fallingHeart.remove();
+      });
+      
+      document.body.appendChild(fallingHeart);
+      setTimeout(() => fallingHeart.remove(), 4100);
+    }
+  }, 800);
+}
+
+// Ajouter l'animation heartFall au CSS
+const extraStyle = document.createElement('style');
+extraStyle.innerHTML = `
+@keyframes heartFall {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+@keyframes infiniteSpin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes wave {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes glowPulse {
+  0%, 100% { 
+    box-shadow: 0 0 20px rgba(255, 77, 109, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(255, 77, 109, 0.8), 0 0 60px rgba(255, 125, 179, 0.5);
+  }
+}
+
+/* Animation pour les boutons */
+.music-btn.active ~ .theme-btn, 
+.music-btn.active ~ .share-btn {
+  animation: wave 1s ease-in-out infinite;
+}
+
+/* Effet de glow sur le compteur */
+.heart-counter.glowing {
+  animation: glowPulse 1s ease-in-out infinite;
+}
+`;
+document.head.appendChild(extraStyle);
+
+// Activer le jeu quand la musique est ON
+const originalMusicClick = musicBtn.onclick;
+musicBtn.addEventListener("click", () => {
+  if(isMusicOn) {
+    startHeartRain();
+    document.querySelector(".heart-counter").classList.add("glowing");
+  } else {
+    gameActive = false;
+    document.querySelector(".heart-counter").classList.remove("glowing");
+  }
 });
-sparkleconste.position = "fixed";
-    sparkle.style.left = Math.random() * 100 +reasonItems.forEach((item, index) => {
-  item.addEventListene    item.addEventListener("click";
-    sp    addHeart();
-    
-    // Animation dstyle.animation =    in    const originalBg = item.style.baar    item.style.background   sparkle.style.poin    
+
+// ==================== Easter EGG: KONAMI CODE ====================
+const konamiCode = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
+let konamiIndex = 0;
+
+document.addEventListener('keydown', (e) => {
+  if(e.key === konamiCode[konamiIndex]) {
+    konamiIndex++;
+    if(konamiIndex === konamiCode.length) {
+      activateEasterEgg();
+      konamiIndex = 0;
+    }
+  } else {
+    konamiIndex = 0;
+  }
+});
+
+function activateEasterEgg() {
+  for(let i = 0; i < 100; i++) {
     setTimeout(() => {
-      item.style.background = originalBg;
-  
-// =========kle.remove(), 2000);
-   
-}     0);
+      launchHearts();
+      launchSparkles();
+      launchConfetti();
+    }, i * 100);
+  }
+}
+
+// ==================== CURSOR SUIVEUR ====================
+document.addEventListener('mousemove', (e) => {
+  // Créer un petit cœur qui suit la souris occasionnellement
+  if(Math.random() > 0.95) {
+    const follower = document.createElement("div");
+    follower.textContent = "💕";
+    follower.style.position = "fixed";
+    follower.style.left = e.clientX + "px";
+    follower.style.top = e.clientY + "px";
+    follower.style.fontSize = "1.2rem";
+    follower.style.pointerEvents = "none";
+    follower.style.animation = "followerFade 0.8s ease-out forwards";
+    follower.style.zIndex = 150;
+    document.body.appendChild(follower);
+    setTimeout(() => follower.remove(), 800);
+  }
+});
+
+// ==================== DOUBLE CLICK EFFECT ====================
+document.addEventListener('dblclick', (e) => {
+  if(!e.target.closest("button")) {
+    launchHearts();
+    launchSparkles();
+  }
+});
+
+// ==================== ANIMATIONS CSS SUPPLÉMENTAIRES ====================
+const additionalStyles = document.createElement('style');
+additionalStyles.innerHTML = `
+@keyframes followerFade {
+  0% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.5) translateY(-30px);
+  }
+}
+
+@keyframes textPopIn {
+  0% {
+    opacity: 0;
+    transform: scale(0) rotate(-180deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+@keyframes buttonGrow {
+  0% {
+    transform: scale(0.8);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Appliquer l'animation sur les boutons au hover */
+button:active {
+  animation: buttonGrow 0.3s ease-out;
+}
+
+/* Animation de texte au chargement */
+h1, h2 {
+  animation: textPopIn 0.8s ease-out 0.2s both;
+}
+
+/* Effet de profondeur sur la boîte de contenu */
+.content {
+  perspective: 1000px;
+}
+
+/* Animation d'apparition staggerée */
+.gift-box:nth-child(1) { animation-delay: 0s; }
+.gift-box:nth-child(2) { animation-delay: 0.1s; }
+.gift-box:nth-child(3) { animation-delay: 0.2s; }
+.gift-box:nth-child(4) { animation-delay: 0.3s; }
+`;
+document.head.appendChild(additionalStyles);
+
+// ==================== THÈME SOMBRE ====================
+const themeBtn = document.getElementById("themeBtn");
+let isDarkMode = false;
+
+themeBtn.addEventListener("click", () => {
+  isDarkMode = !isDarkMode;
+  if(isDarkMode) {
+    document.body.style.background = "linear-gradient(135deg, #2d1b2e 0%, #1a0d2e 50%, #1a0d3d 100%)";
+    themeBtn.textContent = "☀️";
+    document.body.classList.add("dark-mode");
+  } else {
+    document.body.style.background = "linear-gradient(135deg, #ffb3d9 0%, #ffcceb 50%, #ffe0f0 100%)";
+    themeBtn.textContent = "🌙";
+    document.body.classList.remove("dark-mode");
+  }
+});
+
+// ==================== PARTAGE ====================
+const shareBtn = document.getElementById("shareBtn");
+shareBtn.addEventListener("click", () => {
+  const url = window.location.href;
+  if(navigator.share) {
+    navigator.share({
+      title: "Pour ma Valentine 💖",
+      text: "Découvre mon message d'amour spécial!",
+      url: url
+    });
+  } else {
+    const text = `${url}`;
+    navigator.clipboard.writeText(text);
+    alert("Lien copié! Tu peux le partager 💕");
+  }
+});

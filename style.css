@@ -6,7 +6,7 @@
 
 body {
   font-family: 'Poppins', sans-serif;
-  background: linear-gradient(135deg, #ff758c 0%, #ff7eb3 50%, #ffa8a8 100%);
+  background: linear-gradient(135deg, #ffb3d9 0%, #ffcceb 50%, #ffe0f0 100%);
   color: #333;
   overflow-x: hidden;
   min-height: 100vh;
@@ -74,6 +74,41 @@ body {
   color: white;
   border-color: white;
   animation: musicPulse 1s ease-in-out infinite;
+}
+
+.theme-btn, .share-btn {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  border: 2px solid white;
+  background: rgba(255, 255, 255, 0.9);
+  font-size: 1.3rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 30px rgba(255, 77, 109, 0.3);
+}
+
+.theme-btn:hover, .share-btn:hover {
+  transform: scale(1.1) rotate(10deg);
+  box-shadow: 0 15px 40px rgba(255, 77, 109, 0.4);
+}
+
+body.dark-mode {
+  background: linear-gradient(135deg, #2d1b2e 0%, #1a0d2e 50%, #1a0d3d 100%) !important;
+  color: #fff;
+}
+
+body.dark-mode .content {
+  background: rgba(45, 27, 46, 0.95);
+  color: #fff;
+}
+
+body.dark-mode h1, body.dark-mode h2 {
+  color: #ff99cc;
+}
+
+body.dark-mode .subtitle, body.dark-mode p {
+  color: #ccc;
 }
 
 @keyframes musicPulse {
