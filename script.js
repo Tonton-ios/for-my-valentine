@@ -74,7 +74,7 @@ noBtn.addEventListener("mouseover", ()=>{
 });
 
 yesBtn.addEventListener("click", ()=>{
-  response.textContent = "Merci ❤️ Tu rends ma vie magique...";
+  response.textContent = "Merci Ma Flory❤️ Tu rends ma vie magique...";
   response.style.opacity = 1;
 
   launchHearts();
