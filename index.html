@@ -66,101 +66,76 @@
       <h2 id="romanticTitle"></h2>
       <p id="romanticText"></p>
     </div>
-    
-    <!-- Section Interactive Cadeaux -->
-    <div class="gifts-section">
-      <p class="gifts-subtitle">Découvre tes petits cadeaux 🎁</p>
-      <div class="gift-boxes">
-        <div class="gift-box" data-gift="0">
-          <span class="gift-icon">💌</span>
-          <p>Message</p>
-        </div>
-        <div class="gift-box" data-gift="1">
-          <span class="gift-icon">🌹</span>
-          <p>Rose</p>
-        </div>
-        <div class="gift-box" data-gift="2">
-          <span class="gift-icon">💎</span>
-          <p>Joyau</p>
-        </div>
-        <div class="gift-box" data-gift="3">
-          <span class="gift-icon">🎵</span>
-          <p>Musique</p>
-        </div>
-      </div>
-      <div id="giftContent" class="gift-content hidden"></div>
-    </div>
+    <button id="nextFromTextBtn" class="hidden">Suivant</button>
+  </div>
+</section>
 
-    <!-- Section Galerie des sentiments -->
-    <div class="feelings-gallery">
-      <p class="gallery-title">Ce que tu représentes pour moi 💖</p>
-      <div class="feelings-grid">
-        <div class="feeling-card">
-          <span class="feeling-emoji">😊</span>
-          <p>Tu me fais sourire</p>
-        </div>
-        <div class="feeling-card">
-          <span class="feeling-emoji">🌟</span>
-          <p>Tu es mon étoile</p>
-        </div>
-        <div class="feeling-card">
-          <span class="feeling-emoji">🦋</span>
-          <p>Tu me papillonnes le cœur</p>
-        </div>
-        <div class="feeling-card">
-          <span class="feeling-emoji">🌈</span>
-          <p>Tu es mon arc-en-ciel</p>
-        </div>
-        <div class="feeling-card">
-          <span class="feeling-emoji">💪</span>
-          <p>Tu me rends fort</p>
-        </div>
-        <div class="feeling-card">
-          <span class="feeling-emoji">🏠</span>
-          <p>Tu es mon chez-moi</p>
-        </div>
+<!-- ===================== PAGE 4: CADEAUX ===================== -->
+<section class="page page4 hidden">
+  <div class="content">
+    <p class="gifts-subtitle">Découvre tes petits cadeaux 🎁</p>
+    <div class="gift-boxes">
+      <div class="gift-box" data-gift="0">
+        <span class="gift-icon">💌</span>
+        <p>Message</p>
+      </div>
+      <div class="gift-box" data-gift="1">
+        <span class="gift-icon">🌹</span>
+        <p>Rose</p>
+      </div>
+      <div class="gift-box" data-gift="2">
+        <span class="gift-icon">💎</span>
+        <p>Joyau</p>
+      </div>
+      <div class="gift-box" data-gift="3">
+        <span class="gift-icon">🎵</span>
+        <p>Musique</p>
       </div>
     </div>
+    <div id="giftContent" class="gift-content hidden"></div>
+    <button id="nextFromGiftsBtn" class="hidden">Suivant</button>
+  </div>
+</section>
 
-    <!-- Section Raisons de t'aimer -->
-    <div class="reasons-section">
-      <p class="reasons-title">Mes raisons de t'aimer ✨</p>
-      <div class="reasons-list">
-        <div class="reason-item" style="--delay: 0s;">
-          <span class="reason-number">1</span>
-          <p>Ton cœur pur et généreux</p>
-        </div>
-        <div class="reason-item" style="--delay: 0.2s;">
-          <span class="reason-number">2</span>
-          <p>Ton rire qui fait danser mon âme</p>
-        </div>
-        <div class="reason-item" style="--delay: 0.4s;">
-          <span class="reason-number">3</span>
-          <p>Tes yeux pleins de bienveillance</p>
-        </div>
-        <div class="reason-item" style="--delay: 0.6s;">
-          <span class="reason-number">4</span>
-          <p>Ta force et ta détermination</p>
-        </div>
-        <div class="reason-item" style="--delay: 0.8s;">
-          <span class="reason-number">5</span>
-          <p>Ta tendresse incomparable</p>
-        </div>
-        <div class="reason-item" style="--delay: 1s;">
-          <span class="reason-number">6</span>
-          <p>Et simplement... d'être toi</p>
-        </div>
+<!-- ===================== PAGE 6: RAISONS DE T'AIMER ===================== -->
+<section class="page page6 hidden">
+  <div class="content">
+    <p class="reasons-title">Mes raisons de t'aimer ✨</p>
+    <div class="reasons-list">
+      <div class="reason-item" style="--delay: 0s;">
+        <span class="reason-number">1</span>
+        <p>Ton cœur pur et généreux</p>
+      </div>
+      <div class="reason-item" style="--delay: 0.2s;">
+        <span class="reason-number">2</span>
+        <p>Ton rire qui fait danser mon âme</p>
+      </div>
+      <div class="reason-item" style="--delay: 0.4s;">
+        <span class="reason-number">3</span>
+        <p>Tes yeux pleins de bienveillance</p>
+      </div>
+      <div class="reason-item" style="--delay: 0.6s;">
+        <span class="reason-number">4</span>
+        <p>Ta force et ta détermination</p>
+      </div>
+      <div class="reason-item" style="--delay: 0.8s;">
+        <span class="reason-number">5</span>
+        <p>Ta tendresse incomparable</p>
+      </div>
+      <div class="reason-item" style="--delay: 1s;">
+        <span class="reason-number">6</span>
+        <p>Et simplement... d'être toi</p>
       </div>
     </div>
-    
-    <!-- Bouton secret -->
-    <button id="secretBtn" class="hidden">💝 Clique ici pour ta surprise finale 💝</button>
+    <button id="nextFromReasonsBtn" class="hidden">Suivant</button>
+  </div>
+</section>
 
-    <!-- Surprise finale -->
-    <div id="finalSurprise" class="hidden">
-      <h2>✨ Tu es ma plus belle surprise 💖 ✨</h2>
-      <div id="surpriseMessage" class="surprise-box"></div>
-    </div>
+<!-- ===================== PAGE 7: SURPRISE FINALE (GIANT HEART) ===================== -->
+<section class="page page7 hidden">
+  <div class="content surprise-final">
+    <h2>Happy Valentine Day 💖</h2>
+    <div class="giant-heart-name">FLORY</div>
   </div>
 </section>
 

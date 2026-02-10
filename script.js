@@ -5,7 +5,7 @@ if(girlName){
   document.getElementById("name").textContent = girlName;
 }
 
-// ==================== SYSTÈME DE CŒURS ====================
+// SYSTÈME DE CŒURS 
 let heartCount = 0;
 const heartCountEl = document.getElementById("heartCount");
 
@@ -54,13 +54,16 @@ const startBtn = document.getElementById("startBtn");
 const page1 = document.querySelector(".page1");
 const page2 = document.querySelector(".page2");
 const page3 = document.querySelector(".page3");
+const page4 = document.querySelector(".page4");
+const page6 = document.querySelector(".page6");
+const page7 = document.querySelector(".page7");
 
 startBtn.addEventListener("click", ()=>{
   page1.classList.add("hidden");
   page2.classList.remove("hidden");
 });
 
-// ==================== BOUTON OUI / NON ====================
+//BOUTON OUI / NON 
 const yesBtn = document.getElementById("yesBtn");
 const noBtn = document.getElementById("noBtn");
 const response = document.getElementById("response");
@@ -74,7 +77,7 @@ noBtn.addEventListener("mouseover", ()=>{
 });
 
 yesBtn.addEventListener("click", ()=>{
-  response.textContent = "Merci Ma Flory❤️ Tu rends ma vie magique...";
+  response.textContent = "Merci Mon amour ❤️ Tu rends ma vie magique...";
   response.style.opacity = 1;
 
   launchHearts();
@@ -83,11 +86,15 @@ yesBtn.addEventListener("click", ()=>{
   setTimeout(()=>{
     page2.classList.add("hidden");
     page3.classList.remove("hidden");
-    animateText(longText, 50); // lettre par lettre
-  },1500);
+    animateText(longText, 50, ()=>{
+      // afficher bouton suivant quand tout le texte est affiché
+      document.getElementById('nextFromTextBtn').classList.remove('hidden');
+      launchConfetti();
+    });
+  },1050);
 });
 
-// ==================== LONG TEXTE ROMANTIQUE ====================
+//  LONG TEXTE ROMANTIQUE 
 const longText = `Depuis que tu es entrée dans ma vie, chaque jour est plus lumineux et plein de sens.
 Ton sourire illumine mes journées les plus sombres, ta voix me calme et me rassure comme rien d'autre ne pourrait le faire.
 Et la façon dont tu ris, avec cette innocence et cette joie, me rend meilleur et me rappelle pourquoi j'aime être vivant.
@@ -103,18 +110,21 @@ Avec toi, je veux construire quelque chose d'extraordinaire, une histoire dont o
 Je t'aime plus que les mots ne peuvent l'exprimer, plus que les étoiles ne peuvent briller, et bien au-delà du code et des rêves.
 Tu es mon amour, ma confiance, mon espoir et mon avenir. 💖✨`;
 
-// ==================== ANIMATION LETTRE PAR LETTRE ====================
+//  ANIMATION LETTRE PAR LETTRE 
 const romanticTextEl = document.getElementById("romanticText");
 const romanticTitleEl = document.getElementById("romanticTitle");
 romanticTitleEl.textContent = "Mon amour Lyly  ❤️";
 
-function animateText(text, speed){
+function animateText(text, speed, cb){
   romanticTextEl.textContent = "";
   let i = 0;
   const interval = setInterval(()=>{
     romanticTextEl.textContent += text[i];
     i++;
-    if(i >= text.length) clearInterval(interval);
+    if(i >= text.length){
+      clearInterval(interval);
+      if(typeof cb === 'function') cb();
+    }
   }, speed);
 }
 
@@ -135,7 +145,7 @@ function launchHearts(){
   }
 }
 
-// ==================== ANIMATION PAILLETTES ====================
+//  ANIMATION PAILLETTES 
 function launchSparkles(){
   for(let i=0;i<50;i++){
     const sparkle = document.createElement("div");
@@ -155,9 +165,9 @@ function launchSparkles(){
 const secretBtn = document.getElementById("secretBtn");
 const finalSurprise = document.getElementById("finalSurprise");
 
-// ==================== Confettis ====================
+// Confettis 
 function launchConfetti(){
-  const confettiEmojis = ["🎉", "🎊", "🎈", "💝", "💖", "⭐"];
+  const confettiEmojis = [ "❤️"];
   for(let i=0;i<60;i++){
     const conf = document.createElement("div");
     conf.textContent = confettiEmojis[Math.floor(Math.random() * confettiEmojis.length)];
@@ -173,7 +183,7 @@ function launchConfetti(){
   }
 }
 
-// ==================== ANIMATIONS CSS SUPPLÉMENTAIRES ====================
+//  ANIMATIONS CSS SUPPLÉMENTAIRES 
 const style = document.createElement('style');
 style.innerHTML = `
 @keyframes floatAwayHeart {
@@ -214,7 +224,7 @@ style.innerHTML = `
 `;
 document.head.appendChild(style);
 
-// ==================== BOUTON RESTART ====================
+//  BOUTON RESTART
 const restartBtn = document.getElementById("restartBtn");
 if(restartBtn) {
   restartBtn.addEventListener("click", () => {
@@ -222,14 +232,14 @@ if(restartBtn) {
   });
 }
 
-// ==================== Apparition du bouton secret ====================
+// Apparition du bouton secret
 const totalTime = longText.length * 50 + 500; // même vitesse que animateText
 setTimeout(()=>{
   secretBtn.classList.remove("hidden");
   launchConfetti();
 }, totalTime);
 
-// ==================== CONTENU DES CADEAUX ====================
+//  CONTENU DES CADEAUX 
 const giftContents = [
   {
     icon: "💌",
@@ -239,17 +249,17 @@ const giftContents = [
   {
     icon: "🌹",
     title: "Une rose pour toi",
-    content: "Comme une rose, tu es belle, délicate et précieuse. Tu embellis chaque jour de ma vie. 🌹"
+    content: "Comme une rose, tu es belle, délicate et précieuse. Tu embellis chaque jour de ma vie."
   },
   {
     icon: "💎",
     title: "Mon joyau",
-    content: "Tu vaux plus que tous les trésors du monde. Tu es unique et irremplaçable. 💎✨"
+    content: "Tu vaux plus que tous les trésors du monde. Tu es unique et irremplaçable. ✨"
   },
   {
     icon: "🎵",
-    title: "Notre chanson",
-    content: "Chaque moment avec toi est comme une mélodie douce et harmonieuse. Notre amour est notre plus belle chanson. 🎵💕"
+    title: "Une mélodie",
+    content: "Une petite chanson pour toi, pour te rappeler combien tu comptes pour moi. 🎶"
   }
 ];
 
@@ -257,6 +267,8 @@ const giftContents = [
 const giftBoxes = document.querySelectorAll(".gift-box");
 const giftContent = document.getElementById("giftContent");
 
+// TRACKER: quand tous les cadeaux ont été ouverts, afficher bouton suivant
+let revealedGifts = new Set();
 giftBoxes.forEach((box, index) => {
   box.addEventListener("click", () => {
     launchConfetti();
@@ -267,10 +279,16 @@ giftBoxes.forEach((box, index) => {
       <p>${gift.content}</p>
     `;
     giftContent.classList.remove("hidden");
+    
+    // tracker ce cadeau comme ouvert
+    revealedGifts.add(index);
+    if(revealedGifts.size === giftBoxes.length){
+      document.getElementById('nextFromGiftsBtn').classList.remove('hidden');
+    }
   });
 });
 
-// ==================== Message surprise ====================
+// ==================== MESSAGE SURPRISE ====================
 const surpriseMessages = [
   "Tu es l'amour de ma vie",
   "Chaque jour à tes côtés est un cadeau",
@@ -281,34 +299,135 @@ const surpriseMessages = [
   "Ensemble, nous sommes invincibles",
   "Merci de croire en nous",
   "Je ne peux pas imaginer ma vie sans toi",
-  "Tu es parfaite exactement comme tu es"
+  "Tu es parfaite exactement comme tu es", 
+  "Je t'aime avec tout mon cœur"
 ];
 
-// ==================== Action bouton secret ====================
-secretBtn.addEventListener("click", ()=>{
-  finalSurprise.classList.remove("hidden");
-  secretBtn.style.display = "none";
+// Boutons Suivant
+const nextFromTextBtn = document.getElementById('nextFromTextBtn');
+const nextFromGiftsBtn = document.getElementById('nextFromGiftsBtn');
+const nextFromReasonsBtn = document.getElementById('nextFromReasonsBtn');
+
+// Navigation boutons "Suivant"
+nextFromTextBtn.addEventListener('click', () => {
+  page3.classList.add('hidden');
+  page4.classList.remove('hidden');
+  nextFromTextBtn.classList.add('hidden');
+});
+
+nextFromGiftsBtn.addEventListener('click', () => {
+  page4.classList.add('hidden');
+  page6.classList.remove('hidden');
+  nextFromGiftsBtn.classList.add('hidden');
+  
+  // Démarrer l'animation des raisons
+  animateReasons();
+});
+
+// ==================== ANIMATION RAISONS L'UNE APRÈS L'AUTRE ====================
+function animateReasons() {
+  const reasonItems = document.querySelectorAll('.reason-item');
+  
+  reasonItems.forEach((item, index) => {
+    // Masquer initialement tous les éléments
+    item.style.opacity = '0';
+    item.style.transform = 'translateX(-30px)';
+    
+    // Afficher l'un après l'autre avec délai
+    setTimeout(() => {
+      item.style.transition = 'all 0.8s ease-out';
+      item.style.opacity = '1';
+      item.style.transform = 'translateX(0)';
+      launchConfetti();
+      addHeart();
+    }, index * 800); // 800ms entre chaque raison
+  });
+  
+  // Après toutes les raisons, passer à la surprise finale
+  const totalTime = reasonItems.length * 800 + 1000;
+  setTimeout(() => {
+    page6.classList.add('hidden');
+    page7.classList.remove('hidden');
+    nextFromReasonsBtn.classList.add('hidden');
+    launchConfetti();
+    launchHearts();
+    launchSparkles();
+    createNameHeart();
+    startFallingPetals();
+  }, totalTime);
+}
+
+nextFromReasonsBtn.addEventListener('click', () => {
+  page6.classList.add('hidden');
+  page7.classList.remove('hidden');
+  nextFromReasonsBtn.classList.add('hidden');
   launchConfetti();
   launchHearts();
   launchSparkles();
-  
-  // Afficher les messages l'un après l'autre
-  const surpriseBox = document.getElementById("surpriseMessage");
-  let messageIndex = 0;
-  
-  const showNextMessage = () => {
-    if (messageIndex < surpriseMessages.length) {
-      const msg = document.createElement("p");
-      msg.textContent = surpriseMessages[messageIndex];
-      msg.style.animation = "messageAppear 1s ease-in-out";
-      surpriseBox.appendChild(msg);
-      messageIndex++;
-      setTimeout(showNextMessage, 1500);
-    }
-  };
-  
-  showNextMessage();
+  createNameHeart();
+  startFallingPetals();
 });
+
+// ==================== NAME HEART ANIMATION ====================
+function createNameHeart() {
+  const container = document.querySelector('.name-heart');
+  if (!container) return;
+  container.innerHTML = ''; // Clear previous content
+  const name = 'FLORY';
+  const particles = 200; // More particles for a fuller heart
+  // Use parentElement.offsetWidth to get size even if the element itself hasn't been rendered yet
+  const containerSize = container.parentElement.offsetWidth;
+
+  for (let i = 0; i < particles; i++) {
+    const particle = document.createElement('span');
+    particle.classList.add('name-particle');
+    particle.textContent = name;
+
+    // Generate a point inside a heart shape using a cardioid equation
+    const theta = Math.random() * 2 * Math.PI;
+    const scale = containerSize / 2.3; // Adjust scale of the heart to fill the container
+    
+    // Cardioid equation r = a(1 - sin(theta))
+    const r_edge = scale * (1 - Math.sin(theta));
+    const r_rand = Math.sqrt(Math.random()) * r_edge; // Use sqrt for a more uniform distribution
+
+    // Convert polar to cartesian
+    let x = r_rand * Math.cos(theta);
+    let y = -r_rand * Math.sin(theta); // Y is inverted for screen coordinates
+
+    // Center the heart in the container
+    const posX = (containerSize / 2) + x;
+    const posY = (containerSize / 2.2) + y; // Adjust vertical centering to be more attractive
+
+    particle.style.left = `${posX}px`;
+    particle.style.top = `${posY}px`;
+    particle.style.fontSize = `${Math.random() * 10 + 8}px`; // 8px to 18px
+    particle.style.animationDelay = `${Math.random() * 4}s`;
+    
+    container.appendChild(particle);
+  }
+}
+// ==================== PETAL FALL ANIMATION ====================
+function startFallingPetals() {
+  const petalEmojis = ['🌸', '🌺', '🌷', '💖'];
+  const container = document.querySelector('.page7');
+  if (!container) return;
+
+  setInterval(() => {
+    const petal = document.createElement('div');
+    petal.textContent = petalEmojis[Math.floor(Math.random() * petalEmojis.length)];
+    petal.classList.add('falling-petal');
+    
+    petal.style.left = `${Math.random() * 100}vw`;
+    petal.style.fontSize = `${Math.random() * 15 + 15}px`;
+    petal.style.animationDuration = `${Math.random() * 8 + 7}s`; // 7-15 seconds
+    petal.style.animationDelay = `${Math.random() * 2}s`;
+    
+    document.body.appendChild(petal);
+
+    setTimeout(() => petal.remove(), 15000);
+  }, 250);
+}
 // ==================== INTERACTION GALERIE DES SENTIMENTS ====================
 const feelingCards = document.querySelectorAll(".feeling-card");
 feelingCards.forEach((card, index) => {
@@ -501,7 +620,7 @@ document.addEventListener('mousemove', (e) => {
   }
 });
 
-// ==================== DOUBLE CLICK EFFECT ====================
+//  DOUBLE CLICK EFFECT
 document.addEventListener('dblclick', (e) => {
   if(!e.target.closest("button")) {
     launchHearts();
@@ -509,7 +628,7 @@ document.addEventListener('dblclick', (e) => {
   }
 });
 
-// ==================== ANIMATIONS CSS SUPPLÉMENTAIRES ====================
+// ANIMATIONS CSS SUPPLÉMENTAIRES 
 const additionalStyles = document.createElement('style');
 additionalStyles.innerHTML = `
 @keyframes followerFade {

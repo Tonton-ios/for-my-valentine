@@ -556,7 +556,7 @@ button:active {
     transform: scale(1);
   }
   50% {
-    transform: scale(1.2);
+    transform: scale(1.05);
   }
 }
 
@@ -679,6 +679,239 @@ button:active {
     font-size: 0.95rem;
   }
 }
+/* ===================== BOUQUET CSS ===================== */
+.bouquet {
+  position: relative;
+  width: 400px;
+  height: 450px;
+  margin: 30px auto 0;
+}
+
+.stem {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 18px;
+  height: 220px;
+  background: linear-gradient(180deg, #27ae60, #1e8449);
+  transform: translateX(-50%);
+  border-radius: 10px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.stem::before {
+  content: '';
+  position: absolute;
+  left: 3px;
+  top: 0;
+  width: 6px;
+  height: 100%;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.2), transparent);
+  border-radius: 10px;
+}
+
+.flowers {
+  position: absolute;
+  left: 50%;
+  top: 20px;
+  transform: translateX(-50%);
+  width: 320px;
+  height: 220px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flower {
+  width: 140px;
+  height: 140px;
+  position: relative;
+  margin: 0 12px;
+  filter: drop-shadow(0 12px 35px rgba(255, 77, 109, 0.35));
+  animation: flowerPop 0.9s ease-out both;
+}
+
+/* Pétales de fleur */
+.flower::before,
+.flower::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #ff99cc, #ff4d6d);
+}
+
+.flower::before {
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+.flower::after {
+  width: 60%;
+  height: 60%;
+  top: 20%;
+  left: 20%;
+  background: radial-gradient(circle at 40% 40%, #ffcc00, #ffaa00);
+  box-shadow: inset 0 -2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Pétales supplémentaires pour plus de volume */
+.flower-petal {
+  position: absolute;
+  width: 50px;
+  height: 80px;
+  background: radial-gradient(circle at 50% 0%, #ff99cc, #ff4d6d);
+  border-radius: 50% 50% 50% 0;
+  top: 30px;
+  left: 45px;
+  transform-origin: center bottom;
+  filter: drop-shadow(0 4px 8px rgba(255, 77, 109, 0.25));
+}
+
+.petal1 { transform: rotate(0deg) translateY(-10px); }
+.petal2 { transform: rotate(60deg) translateY(-10px); }
+.petal3 { transform: rotate(120deg) translateY(-10px); }
+.petal4 { transform: rotate(180deg) translateY(-10px); }
+.petal5 { transform: rotate(240deg) translateY(-10px); }
+.petal6 { transform: rotate(300deg) translateY(-10px); }
+
+.f1 { animation-delay: 0s; z-index: 1; }
+.f2 { animation-delay: 0.15s; transform: translateY(-12px); z-index: 2; }
+.f3 { animation-delay: 0.3s; transform: translateY(12px); z-index: 1; }
+
+@keyframes flowerPop {
+  0% { 
+    transform: scale(0.2) translateY(50px); 
+    opacity: 0; 
+  }
+  60% { 
+    transform: scale(1.15) translateY(-12px); 
+    opacity: 1; 
+  }
+  100% { 
+    transform: scale(1) translateY(0); 
+  }
+}
+
+.ribbon {
+  position: absolute;
+  left: 50%;
+  bottom: 55px;
+  width: 200px;
+  height: 70px;
+  background: linear-gradient(90deg, #ff4d6d, #ff99cc, #ff4d6d);
+  transform: translateX(-50%) rotate(-15deg);
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(255, 77, 109, 0.3);
+  animation: ribbonWave 3s ease-in-out infinite;
+  position: relative;
+  overflow: hidden;
+}
+
+.ribbon::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  animation: shimmer 3s infinite;
+}
+
+@keyframes ribbonWave {
+  0%, 100% { 
+    transform: translateX(-50%) rotate(-15deg) skewY(0deg); 
+  }
+  50% { 
+    transform: translateX(-50%) rotate(-15deg) skewY(3deg); 
+  }
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+  100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+}
+
+.surprise-final {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  min-height: 100vh;
+}
+
+.surprise-final h2 {
+  font-size: 3.2rem;
+  animation: textGlow 2s ease-in-out infinite;
+  text-shadow: 0 4px 20px rgba(255, 77, 109, 0.4);
+}
+
+/* ===================== GIANT HEART WITH NAME ===================== */
+.giant-heart-name {
+  position: relative;
+  width: 400px;
+  height: 400px;
+  margin: 40px auto;
+  font-size: 5rem;
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  color: white;
+  text-shadow: 
+    0 0 10px rgba(255, 77, 109, 0.5),
+    0 8px 25px rgba(255, 77, 109, 0.4),
+    -3px -3px 0px #ff4d6d,
+    3px 3px 0px #ff7eb3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: heartBeatGiant 1.2s ease-in-out infinite;
+  letter-spacing: 8px;
+  background: linear-gradient(135deg, #ff4d6d, #ff7eb3);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: drop-shadow(0 10px 30px rgba(255, 77, 109, 0.4));
+  clip-path: polygon(
+    50% 0%,
+    61% 35%,
+    98% 35%,
+    68% 57%,
+    79% 91%,
+    50% 70%,
+    21% 91%,
+    32% 57%,
+    2% 35%,
+    39% 35%
+  );
+}
+
+@keyframes heartBeatGiant {
+  0%, 100% {
+    transform: scale(1);
+  }
+  25% {
+    transform: scale(1.05);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  75% {
+    transform: scale(1.05);
+  }
+}
+
+@keyframes nameFloat {
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    transform: translate(-50%, -55%) scale(1.05);
+  }
+}
+
 /* ==================== GALERIE DES SENTIMENTS ==================== */
 .feelings-gallery {
   margin-top: 50px;
@@ -789,9 +1022,9 @@ button:active {
   border-radius: 15px;
   border-left: 5px solid #ff4d6d;
   transition: all 0.3s ease;
-  animation: reasonSlideIn 0.8s ease-out both;
-  animation-delay: var(--delay);
   cursor: pointer;
+  opacity: 1;
+  transform: translateX(0);
 }
 
 @keyframes reasonSlideIn {
@@ -830,4 +1063,43 @@ button:active {
   font-weight: 600;
   font-size: 1.05rem;
   margin: 0;
+}
+
+/* Falling petals */
+.falling-petal {
+  position: fixed;
+  top: -5vh;
+  font-size: 20px;
+  pointer-events: none;
+  z-index: 9999;
+  animation-name: petal-fall-anim;
+  animation-timing-function: linear;
+  will-change: transform, opacity;
+}
+
+@keyframes petal-fall-anim {
+  0% {
+    transform: translateY(0) rotateZ(0deg) rotateX(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(105vh) rotateZ(360deg) rotateX(180deg);
+    opacity: 0;
+  }
+}
+
+.surprise-final {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  min-height: 100vh;
+  overflow: visible !important;
+}
+
+.surprise-final h2 {
+  font-size: 3.2rem;
+  animation: textGlow 2s ease-in-out infinite;
+  text-shadow: 0 4px 20px rgba(255, 77, 109, 0.4);
 }
