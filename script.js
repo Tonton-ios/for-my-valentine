@@ -128,7 +128,7 @@ Bonne Saint-Valentin, Flory.`;
 //  ANIMATION LETTRE PAR LETTRE 
 const romanticTextEl = document.getElementById("romanticText");
 const romanticTitleEl = document.getElementById("romanticTitle");
-romanticTitleEl.textContent = "Mon amour Lyly  ❤️";
+romanticTitleEl.textContent = "Flory ❤️";
 
 function animateText(text, speed, cb){
   romanticTextEl.textContent = "";
