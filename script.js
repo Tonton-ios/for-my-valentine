@@ -77,7 +77,7 @@ noBtn.addEventListener("mouseover", ()=>{
 });
 
 yesBtn.addEventListener("click", ()=>{
-  response.textContent = "Merci Mon amour ❤️ Tu rends ma vie magique...";
+  response.textContent = "Merci Flory";
   response.style.opacity = 1;
 
   launchHearts();
@@ -95,20 +95,35 @@ yesBtn.addEventListener("click", ()=>{
 });
 
 //  LONG TEXTE ROMANTIQUE 
-const longText = `Depuis que tu es entrée dans ma vie, chaque jour est plus lumineux et plein de sens.
-Ton sourire illumine mes journées les plus sombres, ta voix me calme et me rassure comme rien d'autre ne pourrait le faire.
-Et la façon dont tu ris, avec cette innocence et cette joie, me rend meilleur et me rappelle pourquoi j'aime être vivant.
+const longText = `Aujourd’hui, c’est la Saint-Valentin.
 
-Chaque moment que nous partageons est gravé dans mon cœur comme un trésor précieux.
-Je veux construire une vie remplie de ces petits instants magiques avec toi.
-Je promets d'être là pour toi dans les rires éclatants, dans les larmes silencieuses, et dans chaque folie que la vie nous offrira.
+Ce jour où l’on parle d’amour avec des fleurs, des promesses et des mots parfois trop légers. Mais moi, je ne veux pas t’écrire quelque chose de léger. Je veux t’écrire quelque chose de vrai.
 
-Merci d'être toi, vraiment. Merci de me laisser t'aimer à ma façon, sans condition et sans limite.
-Tu es ma personne préférée dans ce monde et dans tous les mondes possibles que je pourrais imaginer.
-Avec toi, je veux construire quelque chose d'extraordinaire, une histoire dont on parlera dans les étoiles.
+Nous ne sommes plus ensemble. Nous avons changé. Nous avons laissé des choses en suspens. Nous n’avons jamais vraiment posé les mots qu’il fallait, au moment où il fallait. Et avec le recul, je comprends que le silence peut parfois faire plus de dégâts que les disputes.
 
-Je t'aime plus que les mots ne peuvent l'exprimer, plus que les étoiles ne peuvent briller, et bien au-delà du code et des rêves.
-Tu es mon amour, ma confiance, mon espoir et mon avenir. 💖✨`;
+Mais malgré tout cela… ce que j’ai ressenti pour toi n’a jamais été superficiel.
+
+Je t’ai aimée d’un amour conscient. Pas parfait. Pas toujours bien exprimé. Mais sincère.
+
+Un amour qui ne cherchait pas seulement à posséder, mais à comprendre. Un amour qui voulait construire, même quand il ne savait pas toujours comment faire. Un amour qui m’a transformé.
+
+On dit que la Saint-Valentin célèbre les couples. Moi, je crois qu’elle célèbre surtout la vérité des sentiments. Et la vérité, c’est que même si nos chemins se sont séparés, même si nos réalités ont évolué… ce que j’ai éprouvé pour toi reste une des choses les plus authentiques que j’ai vécues.
+
+Je ne t’écris pas pour rouvrir des blessures. Je ne t’écris pas pour te mettre une pression. Je t’écris parce qu’un amour vrai mérite d’être reconnu, même quand il ne prend pas la forme qu’on imaginait.
+
+Tu as été importante. Tu l’es encore d’une manière différente, plus silencieuse, plus mature.
+
+Si nous avons échoué à clarifier certaines choses, je prends ma part. J’aurais pu être plus direct, plus transparent, plus courageux dans certaines conversations. Aimer demande de la maturité émotionnelle, et on apprend parfois trop tard ce que cela implique réellement.
+
+Aujourd’hui, je ne suis plus le même. Et je sais que toi non plus. Mais je garde pour toi un respect profond, et une affection qui ne se résume pas au passé.
+
+En ce jour de Saint-Valentin, je voulais simplement te dire ceci : je ne regrette pas de t’avoir aimée. Je ne renie rien. Parce que cet amour m’a élevé. Il m’a appris. Il m’a construit.
+
+Je te souhaite un amour clair. Stable. Assumé. Un amour où les mots ne restent pas coincés dans le silence.
+
+Et quoi qu’il arrive, je te remercie d’avoir été une partie réelle de mon histoire.
+
+Bonne Saint-Valentin, Flory.`;
 
 //  ANIMATION LETTRE PAR LETTRE 
 const romanticTextEl = document.getElementById("romanticText");
@@ -244,22 +259,22 @@ const giftContents = [
   {
     icon: "💌",
     title: "Message d'amour",
-    content: "Tu es la plus belle chose qui me soit jamais arrivée. Merci de faire partie de ma vie. 💕"
+    content: "Flory,Même si nos chemins ont changé, mon cœur ne ment pas. Je t’ai aimée sincèrement. Pas parfaitement. Mais profondément. Et ce que j’ai ressenti pour toi reste une des vérités les plus fortes de ma vie."
   },
   {
     icon: "🌹",
     title: "Une rose pour toi",
-    content: "Comme une rose, tu es belle, délicate et précieuse. Tu embellis chaque jour de ma vie."
+    content: "Cette rose représente ce que je n’ai pas toujours su exprimer. L’amour demande du courage, et parfois j’ai manqué de mots. Mais jamais de sentiments. Tu as été une douceur réelle dans mon histoire."
   },
   {
     icon: "💎",
     title: "Mon joyau",
-    content: "Tu vaux plus que tous les trésors du monde. Tu es unique et irremplaçable. ✨"
+    content: " Tu as été un joyau dans ma vie. Pas parce que tout était parfait,mais parce que c’était rare, authentique, marquant.Certaines personnes laissent un souvenir.Toi, tu as laissé une empreinte."
   },
   {
     icon: "🎵",
     title: "Une mélodie",
-    content: "Une petite chanson pour toi, pour te rappeler combien tu comptes pour moi. 🎶"
+    content: "S’il y avait une musique pour nous elle ne serait pas triste. Elle serait intense, profonde, imparfaite… mais vraie.Comme ce que j’ai ressenti pour toi.Et cette mélodie-là, je ne l’oublierai jamais."
   }
 ];
 
@@ -290,17 +305,17 @@ giftBoxes.forEach((box, index) => {
 
 // ==================== MESSAGE SURPRISE ====================
 const surpriseMessages = [
-  "Tu es l'amour de ma vie",
-  "Chaque jour à tes côtés est un cadeau",
-  "Tu fais de moi une meilleure personne",
-  "Mon cœur t'appartient",
-  "Avec toi, je veux vivre mille aventures",
-  "Tu es ma raison de sourire",
-  "Ensemble, nous sommes invincibles",
-  "Merci de croire en nous",
-  "Je ne peux pas imaginer ma vie sans toi",
-  "Tu es parfaite exactement comme tu es", 
-  "Je t'aime avec tout mon cœur"
+  "Parce que tu es vraie.",
+  "Parce que tu as marqué ma vie.",
+  "Parce que tu m’as fait grandir.",
+  "Parce que ta douceur cache une force.",
+  "Parce que même nos imperfections avaient du sens.",
+  "Parce que tu as une lumière particulière.",
+  "Parce que tu m’as inspiré à devenir meilleur.",
+  "Parce que nos moments avaient une profondeur rare.",
+  "Parce que malgré le temps et les changements, le respect est intact. Et le respect est la base de tout amour mature.",
+  "Parce que mon cœur ne sait pas mentir.", 
+  "Je t'aime avec tout mon cœur."
 ];
 
 // Boutons Suivant
